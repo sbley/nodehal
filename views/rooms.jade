@@ -1,0 +1,10 @@
+extends layout
+
+block content
+  h1.
+    Rooms
+  ul
+    each room, i in rooms
+      li
+        a(href="#{room.ID}")= room.ROOMNUMBER
+        =' (' + room.CAPACITY + ')'
