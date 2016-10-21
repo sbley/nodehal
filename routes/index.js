@@ -13,13 +13,15 @@ router.get('/helloworld', function(req, res) {
 });
 
 /* GET Campus page. */
-router.get('/campus', function(req, res) {
+router.get('/campus/rooms', function(req, res) {
   con.connect();
   con.query('SELECT * FROM ROOM', function(err, rows, fields) {
     if (err) throw err;
     console.log('Rooms: ', rows);
-    console.log('Room 1: ', rows[0].CAPACITY);
     res.render('rooms', { "rooms": rows });
+  });
+  con.end(function(err) {
+    // The connection is terminated now
   });
 });
 
