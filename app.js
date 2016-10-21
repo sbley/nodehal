@@ -10,6 +10,8 @@ var mongo = require('mongodb');
 var monk = require('monk');
 var db = monk('localhost:27017/nodetest1');
 
+var eureka = require('./config/eureka');
+
 var routes = require('./routes/index');
 var api = require('./routes/api');
 
@@ -67,5 +69,7 @@ app.use(function(err, req, res, next) {
     error: {}
   });
 });
+
+eureka.start();
 
 module.exports = app;
