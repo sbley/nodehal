@@ -51,7 +51,7 @@ router.get('/slots/:slot_id', function(req, res) {
   });
 });
 
-/* GET Campus page. */
+/* GET rooms. */
 router.get('/rooms', function(req, res) {
   const url = req.protocol + '://' + req.hostname + PORT + req.originalUrl;
   con.query('SELECT * FROM ROOM', function(err, rows, fields) {
